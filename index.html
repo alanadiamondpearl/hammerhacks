@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<! HEY! I SEE YA SNOOPIN' IN HERE! STOP IT! -jack>
-<!I eat organs - avery>
-<! THE END IS NEVER THE END - avery>
+<!-- HEY! I SEE YA SNOOPIN' IN HERE! STOP IT! -jack-->
+<!--I eat organs - avery-->
+<!-- THE END IS NEVER THE END - avery-->
 
 <html>
+    <audio src="/audio/Thrash Machine [Deltarune Chapter 1 OST].mp3">
+        </audio>
     <head>
         <title>Algebra Solver thing</title>
         <style>
@@ -15,34 +17,57 @@
     <body>
         <div>
             <input id="text" placeholder="Math here!" type="text" value="" ><BR>
-            <button onclick=test() color=#000000>
-                <img src="placeholder" border="0" />
-        </button>
-        </div>
-        <div>
-            <img src="https://i.imgur.com/LFare1x.gif" alt="bebo" width="460" height="360">
-            <img src="https://i.imgur.com/LkwqJv8.jpeg" alt="bebo backdrop" width="460" height="auto">
-        </div>
-    </body>
-
-    <script>
-        var text = document.getElementById("text");
-        var re = /-?(\d+(?:\.\d+)*)([a-z])?(?:\((.+?)\))?([-+/*]|$)/g
-        var residentevil = /-?(\d+(?:\.\d+)*)([a-z])?([-+/*]|$)/g
-        function test() {
+                <button onclick=test() color=#000000>
+                    <img src="" border="0" />
+            </button>
+         <div>
+            <img id="imgtoswitch"src="./images/IMG_3154.gif" alt="bebo" width="460" height="auto" >
+         </div>
+        </body>
+    
+        <script>
+            const text = document.getElementById("text");
+            const re = /(-)?(\d+(?:\.\d+)*)([a-z])?(?:\((.+?)\))?(?:([-+/*])|$)/g
+            function test() {
+                document.getElementById("imgtoswitch").src = "./images/IMG_3156.gif";
+                setTimeout(function() {
+                    document.getElementById("imgtoswitch").src = "./images/IMG_3162.gif";
+                    setTimeout(function() {
+                        document.getElementById("imgtoswitch").src = "./images/IMG_3154.gif";
+                    }, (5 * 1000));
+                }, (9 * 1000));
             var str = text.value;
             if (str == "") {
-                alert("nuh uh");
+                alert("no");
             } else {
                 console.log(str);
                 text.value = ""
                 var array = [...str.matchAll(re)];
                 console.log(array);
-                for (let i=0; i < array.length; i++) {
-                    array[i][3] = [...array[i][3].matchAll(residentevil)]
-                }
+                var done = true;
+                while (done) { /*loopin forEVER /hj */
+                    var fin = true;
+                    for (let i=0; i < array.length; i++) {
+                        if (typeof(array[i]) == "object") {
+                            x = array[i][3];
+                            array[i][3] = [...x.matchAll(re)]; /*throws an error when its done but idk how to fix */
+                            if (!(x == array[i][3])) { 
+                                fin = false; 
+                            };
+                        };
+                    };
+                    if (fin) {
+                       /*if fin then done lmao */ done = false;
+                    };
+                };
+                var act = []
+                for (i=0; i < array.length; i++) {
+                /* I give up. brain hurty. */
+                /* atp there would be code making a new more workable array but idgaf anymore */
+                };
+                
             };
-        }
+        };
         
     </script>
 </html>
